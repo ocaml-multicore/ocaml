@@ -94,11 +94,12 @@ CAMLextern void caml_record_backtraces(int);
 /* FIXME: this shouldn't matter anymore. Since OCaml 4.02, non-parameterized
  * exceptions are constant, so physical equality is no longer appropriate.
  * raise and re-raise are distinguished by:
- * - passing reraise = 1 to [caml_stash_backtrace] (see below) in the bytecode
- *   interpreter;
- * - directly resetting [Caml_state->backtrace_pos] to 0 in native
-     runtimes for raise.
+ * - passing reraise = 1 to [Caml_state->stash_backtrace] (see below) in the
+ *   bytecode interpreter;
+ * - directly resetting [Caml_state->backtrace_pos] to 0 in native runtimes for
+ *   raise.
  */
+
 
 #ifndef NATIVE_CODE
 
